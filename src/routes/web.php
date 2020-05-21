@@ -21,5 +21,8 @@ $router->get('/', function() use ($router){
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('character', "CharactersController@index");
+
+    $router->get('character/{id}', "CharactersController@show");
 });
+
 
