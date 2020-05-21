@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use Illuminate\Http\Response;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,7 +15,11 @@
 |
 */
 
+$router->get('/', function() use ($router){
+    return response()->json(["characters" => "http://rickandmorty.lndo.site:8000/api/character"]);
+});
+
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('characters', "CharactersController@getAll");
+    $router->get('character', "CharactersController@index");
 });
 

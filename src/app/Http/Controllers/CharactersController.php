@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Response;
+use App\Models\Character;
+
 class CharactersController extends Controller
 {
     /**
@@ -15,29 +18,8 @@ class CharactersController extends Controller
     
     }
 
-    public function getAll(){
-        return json_encode(
-            array(
-                "results" => array(
-                    array(
-                        "id" => 1,
-                        "name" => "Rick Sanchez",
-                        "status" => "Alive",
-                        "species" => "Human",
-                        "type" => "",
-                        "gender" => "Male"
-                    ),
-                    array(
-                        "id" => 2,
-                        "name" => "Morty Smith",
-                        "status" => "Alive",
-                        "species" => "Human",
-                        "type" => "",
-                        "gender" => "Male"
-                    )
-                )
-            )
-        );
+    public function index(){
+        return response()->json(Character::all());
     }
 
 
