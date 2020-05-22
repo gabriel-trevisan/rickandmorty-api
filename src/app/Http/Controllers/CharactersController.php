@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Response;
 use App\Models\Character;
-use App\User;
 
 class CharactersController extends Controller
 {
@@ -25,7 +24,12 @@ class CharactersController extends Controller
 
     public function show($id)
     {
-        return Character::findOrFail($id);
+        $character = Character::find($id);
+        if(is_null($character)){
+            return response()->json('', 204);
+        }
+        return response()->json($character, 200);
+
     }
 
 
