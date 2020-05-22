@@ -12,4 +12,3 @@ class Character extends Model{
 
 }
 
-?>
