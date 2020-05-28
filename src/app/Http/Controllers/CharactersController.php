@@ -24,13 +24,15 @@ class CharactersController extends Controller
 
     public function show($id)
     {
-        $character = Character::find($id);
+        $character = explode(',', $id);
+        // dd($character);
+
         if(is_null($character)){
             return response()->json('', 204);
         }
+
+        $character = Character::find($character);
+
         return response()->json($character, 200);
-
     }
-
-
 }

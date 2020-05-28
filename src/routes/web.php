@@ -17,7 +17,7 @@ use Illuminate\Http\Response;
 
 $router->get('/', function() use ($router){
     return response()
-            ->json(["characters" => url("/api/character")], 200, [], JSON_UNESCAPED_SLASHES);
+        ->json(["characters" => url("/api/character")], 200, [], JSON_UNESCAPED_SLASHES);
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
